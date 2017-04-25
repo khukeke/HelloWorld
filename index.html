@@ -65,6 +65,7 @@
 	function getFoo(){
 		console.log(foo);
 		var foo = 2;
+		m2.call(m2);
 		console.log(this.foo);
 		this.foo = 3;
 	}
