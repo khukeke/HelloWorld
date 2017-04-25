@@ -60,5 +60,16 @@
         <!-- <div><img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg" /></div> -->
     </li>
 </ul>
+<script>
+	var foo = 1;
+	function getFoo(){
+		console.log(foo);
+		var foo = 2;
+		console.log(this.foo);
+		this.foo = 3;
+	}
+	var m2 =  new getFoo();
+	console.log(m2)
+</script>
 </body>
 </html>
