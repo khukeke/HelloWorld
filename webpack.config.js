@@ -1,7 +1,42 @@
+var path = require('path');
+var webpack = require('webpack');
+var sassLoader = 'style!css!sass?sourceMap=true&sourceMapContents=true';
+
 module.exports = {
-  entry: __dirname + '/app/main.js',
-  output :{
-    path: __dirname + '/public',
-    filename: "bundle.js"
-  }
-}
+  devtool: 'cheap-module-eval-source-map',
+  entry: [
+    // 'webpack-hot-middleware/client',
+    './app/index.js',
+  ],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'bundle.js',
+    publicPath: '/static/',
+  },
+  module: {
+    loaders: [{
+      test: /\.jsx?$/,
+      include: [
+        path.resolve(__dirname, 'app'),
+      ],
+      loaders: ['react-hot', 'babel'],
+    },
+    {
+      test: /\.scss$/,
+      include: [
+        path.resolve(__dirname, 'css'),
+      ],
+      loader: sassLoader
+    }],
+  },
+  resolve: {
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react'),
+    },
+    extensions: ['', '.js', '.jsx', '.scss', '.css'],
+  },
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
+};
