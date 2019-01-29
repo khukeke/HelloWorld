@@ -8,12 +8,16 @@ module.exports = {
         filename: '[name].[hash].js',
         path: path.join(__dirname, 'output')
     },
+    mode: 'development',
     resolve: {
         extensions: ['.js', '.json'],
         alias: {
             '@configs': path.join(__dirname, '../src/configs'),
             '@middleware': path.join(__dirname, '../src/middleware'),
         }
+    },
+    performance: {
+        hints: process.env.NODE_ENV === 'production' ? "warning" : false
     },
     devServer: {
         contentBase: './',
