@@ -19,7 +19,6 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <Route path="/" component={App} />
-            {/* <Route path="/option1" component={MainContent} /> */}
         </Router>
     </Provider>,
     document.getElementById('root')

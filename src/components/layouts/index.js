@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Layout, Menu, Breadcrumb, Icon,} from 'antd';
+import {Layout, Menu, Icon,} from 'antd';
 import {Router, Route, Link} from 'react-router-dom';
 
 // import Header from './header';
@@ -31,7 +31,7 @@ class PageLayout extends Component {
                                 <Menu.Item key="1">
                                     <Link to="/option1">option1</Link>
                                 </Menu.Item>
-                                <Menu.Item key="2">option2</Menu.Item>
+                                <Menu.Item key="2"> <Link to="/option2">option2</Link></Menu.Item>
                                 <Menu.Item key="3">option3</Menu.Item>
                                 <Menu.Item key="4">option4</Menu.Item>
                             </SubMenu>
@@ -50,7 +50,8 @@ class PageLayout extends Component {
                         </Menu>
                     </Sider>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                        Content
+                        <Route path="/option1" component={MainContent} />
+                        <Route path="/option2" component={LeftSide} />
                     </Content>
                 </Layout>
             </Content>

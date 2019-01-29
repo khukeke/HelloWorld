@@ -12,7 +12,6 @@ class App extends Component {
     return (
         <div className="App">
             <Route path="/" component={PageLayout} />
-            <Route path="/option1" component={MainContent} />
         </div>
     );
   }
