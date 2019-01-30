@@ -1,12 +1,17 @@
 import React, {Component} from 'react';
 
+import {Layout, Menu} from 'antd';
+const {Header} = Layout;
 
-class Header extends Component {
+class HeaderPart extends Component {
     render() {
-        return <div>
-            header
-        </div>
+        return <Header className="header">
+            <div className="logo" />
+            <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{lineHeight: '64px'}}>
+
+            </Menu>
+        </Header>
     }
 }
 
-export default Header;
+export default HeaderPart;

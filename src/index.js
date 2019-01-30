@@ -17,9 +17,10 @@ const store = {};
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router>
-            <Route path="/" component={App} />
-        </Router>
+        <App />
+        {/* <Router>
+            <Route path="/" component={App}></Route>
+        </Router> */}
     </Provider>,
     document.getElementById('root')
 )
