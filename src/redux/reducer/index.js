@@ -1,5 +1,5 @@
 
-
+import {addTodo, SET_VISIBILITY_FILTER} from '../action';
 
 const initialState = {
     page: 0
@@ -7,7 +7,9 @@ const initialState = {
 
 export default function todoApp(state=initialState, action) {
     switch (action.type) {
-        case 'SET_VISIBILITY_FILTER':
+        case SET_VISIBILITY_FILTER:
+            console.log('action')
+            console.log(action)
             return {
                 ...state,
                 page: action.page

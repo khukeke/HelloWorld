@@ -4,11 +4,16 @@ import HeaderPart from './header';
 import LeftSide from './leftSide';
 import MainContent from './mainContent';
 import {connect} from 'react-redux';
-
+import {addTodo} from '../../redux/action'
 const {Content, Footer} = Layout;
 class PageLayout extends Component {
     constructor(props) {
         super(props);
+    }
+    componentDidMount() {
+        console.log('this.props')
+        console.log(this.props)
+        this.props.addTodoDispatch();
     }
     render() {
         console.log('this.props')
@@ -30,5 +35,10 @@ const mapStateToProps = (state, ownProps) => {
         page: state.page
     }
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addTodoDispatch: () => {dispatch(addTodo(2))}
+    }
+}
 
-export default connect(mapStateToProps)(PageLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(PageLayout);
